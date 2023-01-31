@@ -1,0 +1,152 @@
+.header {
+  min-height: 100px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  background-color: var(--white);
+  box-shadow: 0 5px 40px 0 rgba(0, 0, 0, .1);
+}
+
+.header__container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__burger.hamburger {
+  display: none;
+}
+
+.header__logo {
+  display: flex;
+  align-items: center;
+  width: 224px;
+  min-height: 72px;
+  margin-right: 40px;
+}
+
+.nav,
+.nav__list {
+  display: flex;
+  align-items: center;
+}
+
+.nav__list {
+  flex-wrap: wrap;
+  margin-bottom: -10px;
+  font-size: 18px;
+  font-weight: var(--semibold);
+  line-height: 22px;
+}
+
+.nav__item {
+  margin-right: 85px;
+  margin-bottom: 10px;
+}
+
+.nav__link {
+  position: relative;
+  outline: none;
+}
+
+.nav__link::after {
+  content: "";
+  position: absolute;
+  bottom: -7px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--orange);
+  transition: transform var(--short);
+  transform: scaleX(0);
+}
+
+.nav__link:focus-visible:not(:hover:not(:active)) {
+  outline: 2px solid var(--orange);
+  outline-offset: 3px;
+}
+
+.nav__link:active {
+  color: var(--orange-dark);
+}
+
+.nav__link:active::after {
+  color: var(--orange-dark);
+  background-color: var(--orange-dark) ;
+  transform: scaleX(1);
+}
+
+.header__search {
+  color: var(--dark);
+  outline: none;
+  transition: color var(--short);
+}
+
+.header__search:focus-visible:not(:hover):not(:active) {
+  color: var(--dark);
+  outline: 2px solid var(--orange);
+  outline-offset: 5px;
+}
+
+.header__search:active {
+  color: var(--orange-dark);
+}
+
+.header__logo,
+.header__search {
+  flex-shrink: 0;
+}
+
+@media (max-width: 1280px) {
+  .header {
+    display: flex;
+  }
+
+  .header__container {
+    width: 100%;
+  }
+
+  .header__burger.hamburger {
+    display: inline-block;
+    width: 30px;
+    height: 23px;
+  }
+
+  .nav__list {
+    display: none;
+  }
+
+  .header__logo {
+    width: 150px;
+    min-height: 48px;
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 800px) {
+  .header {
+    min-height: 69px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+}
+
+@media (max-width: 576px) {
+  .header__logo {
+    width: 110px;
+    min-height: 35px;
+  }
+}
+
+@media (any-hover: hover) {
+  .nav__link:hover:not(:active)::after {
+    transform: scaleX(1);
+  }
+
+  .header__search:hover:not(:active) {
+    color: var(--orange);
+    cursor: pointer;
+  }
+}
+
+
